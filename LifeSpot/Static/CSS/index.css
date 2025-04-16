@@ -1,0 +1,87 @@
+﻿.video-container {
+    display: inline-block; /*позволяет  нескольким контейнерам располагаться в одну строку*/
+    padding-left: 1%;      /*добавляет внутренние отступы 1% род контейнера*/
+    padding-top: 1%;
+    margin-top: 2%;
+}
+
+.input_container {
+    position: relative;
+    margin: auto;
+    padding-left: 1%;
+}
+
+    .input_container input:focus {
+        outline: none;          /*убрали стандартную обводку*/
+        border-color: darkorange;
+        border-style: solid;
+        border-width: 2px;
+    }
+
+
+*::selection{
+    background-color:burlywood;
+}
+
+.navbar a{
+    color:bisque;
+    padding-left: 15%;
+}
+
+.navbar > p:hover {
+        background-color:coral;
+}
+/*[id $= "index"] {
+    color:brown;
+}*/
+
+/*#header-index{
+    color:blueviolet;
+}*/
+
+/*[class="video-container"] {
+    border-bottom: double thin red ;
+        border-top: solid 2px black
+}*/
+header {
+    color: red;
+    padding-left: 1%;
+    padding-top: 1.2%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    line-height: 10%;       /*размер межстрочного интервала*/
+    font-size: medium;
+    color: dimgrey;
+    margin: auto;
+}
+
+aside {
+    height: 100%; /* Высота в полный размер. Этот параметр можно убрать, если вы хотите выставлять высоту автоматически */
+    width: 10%;
+    position: absolute; /* Фиксированная позиция сайд-бара. Так он будет оставаться на месте при скроллинге */
+    z-index: 1; /* Сайд-бар будет поверх остальных элементов */
+    top: 0; /* Сайдбар будет в самой верхней части страницы */
+    left: 0;
+    background-color: #111; /* Черный цвет фона (задан в виде кода) */
+    overflow-x: hidden; /* Отключаем горизонтальную прокрутку */
+    padding-top: 2%;
+    font-size: large;
+    color: bisque;
+}
+
+body {
+    padding-left: 11%;
+}
+
+header, footer, body, .video-container {
+    background-color: linen;
+}
+
+header, footer, body, .navbar, .video-container {
+    font-family:'MS Reference Sans Serif';
+}
+
+
