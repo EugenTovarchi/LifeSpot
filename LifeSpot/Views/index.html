@@ -3,43 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>LifeSpot</title>
-    <!--Подключение стилей по относительному пути из внешнего файла-->
+    <!--Подключение стилей и скриптов по относительному пути из внешнего файла-->
     <link href="../Static/CSS/index.css" rel="stylesheet" type="text/css" />
+    <script src="../Static/JS/index.js" type="text/javascript"></script>
+    <script src="../Static/JS/input.js" type="text/javascript"></script>
+    <script>
+        // Создадим и обработаем сессию
+        handleSession(checkAge);
+        // Логируем в консоль.
+        sessionLog();
+
+        // Функция объявлена через declaration      
+        function inputParseFunction()
+        {
+            /* Аргумент - значение, введённое пользователем*/
+            return document.getElementsByTagName('input')[0].value.toLowerCase();
+        }
+    </script>
 </head>
 <body>
 
     <header id="header-index">
-        <div class="bordered">
-            <h1>LifeSpot - прямые  трансляции с улиц</h1>
-            <p>Покажем, что происходит прямо сейчас</p>
-        </div>
+        <h1>LifeSpot - прямые трансляции с улиц</h1>
+        <p>Покажем, что происходит прямо сейчас</p>
     </header>
 
     <aside id="sidebar">
         <div class="navbar">
-            <p><a href="file:///D:/C%23%20Course/Download25/LifeSpot/Views/index.html">Все трансляции</></a> </p>
-            <p><a href="file:///D:/C%23%20Course/Download25/LifeSpot/Views/index.html">О проекте</a></p>
+            <!--<p><a href="file:///D:/C%23%20Course/Download25/LifeSpot/Views/index.html">Все трансляции</></a> </p>-->
+            <p><a href="http://localhost:5000">Все трансляции</></a> </p>
+            <p><a href="http://localhost:5000/about">О проекте</a></p>
         </div>
     </aside>
 
-        <div class="input_container">
+    <div class="input_container">
         <p><h5>Введите город для поиска:</h5></p>
-            <!--<input style="text" size="10"/>-->   
-            <input />
-        </div>
+        <input type="text" id="searchInput" oninput="filterContent(); " size=50% />
+        <script src="../Static/JS/input.js" type="text/javascript"></script>
+    </div>
 
-        <div class="video-container">
-            <iframe width="460" height="315" src="https://www.youtube.com/embed/srlpC5tmhYs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <h3 class="video-title">Нью-Йорк, Брайант Парк</h3>
-        </div>
-        <div class="video-container">
-            <iframe width="460" height="315" src="https://www.youtube.com/embed/wCcMcaiRbhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <h3 class="video-title">Санкт-Петербург, Невский Проспект</h3>
-        </div>
-        <div class="video-container">
-            <iframe width="460" height="315" src="https://www.youtube.com/embed/JplMzss6_YE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <h3 class="video-title">Лондон, автобусный маршрут</h3>
-        </div>
+    <div class="video-container">
+        <iframe width="460" height="315" src="https://www.youtube.com/embed/srlpC5tmhYs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3 class="video-title">Нью-Йорк, Брайант Парк</h3>
+    </div>
+    <div class="video-container">
+        <iframe width="460" height="315" src="https://www.youtube.com/embed/wCcMcaiRbhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3 class="video-title">Санкт-Петербург, Невский Проспект</h3>
+    </div>
+    <div class="video-container">
+        <iframe width="460" height="315" src="https://www.youtube.com/embed/JplMzss6_YE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3 class="video-title">Лондон, автобусный маршрут</h3>
+    </div>
 
     <footer>
         <div>
@@ -47,5 +61,5 @@
             <p href="contact@lifespot.ru">Связаться с нами: contact@lifespot.ru</p>
         </div>
     </footer>
-</body> 
+</body>
 </html>
