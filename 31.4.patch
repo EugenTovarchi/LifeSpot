@@ -1,0 +1,13 @@
+Index: LifeSpot/Views/Shared/slider.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/LifeSpot/Views/Shared/slider.html b/LifeSpot/Views/Shared/slider.html
+--- a/LifeSpot/Views/Shared/slider.html
++++ b/LifeSpot/Views/Shared/slider.html	(date 1747644396679)
+@@ -1,1 +1,1 @@
+-<
+\ No newline at end of file
++<p>Слайдер</p>
+\ No newline at end of file
