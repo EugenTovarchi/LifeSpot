@@ -13,11 +13,6 @@ function Comment() {
         return
 }
 
-
-/*Запросим пользовательский ввод
- и сохраним отзыв в объект*/
-
-
 function addComment() {
 
     let comment = new Comment();
@@ -34,8 +29,6 @@ function addComment() {
     }
     writeReview(comment)
 }
-
-//document.querySelector('.review-button button').addEventListener('click', addComment);
 
 function addLike (id) {
     let element = document.getElementById(id);

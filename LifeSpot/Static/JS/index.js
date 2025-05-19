@@ -49,10 +49,7 @@ let sessionLog = function (){
     console.log("Ваш пользователя:"+ sessionStorage.getItem("userAge"))
     console.log("Данные клиента:" + sessionStorage.getItem("userAgent"))
 }
-/*
-* Функция для фильтрации контента
-* Будет вызываться благодаря атрибуту oninput на index.html.
-* */
+
 
 function filterContent(){
     let elements = document.getElementsByClassName('video-container');
@@ -68,13 +65,6 @@ function filterContent(){
     }
 }
 
-/*
-* Всплывающее окно будет показано по таймауту
-* 
-* */
-// setTimeout(() =>
-//     alert("Нравится LifeSpot? " + '\n' +  "Подпишитесь на наш Instagram @lifespot999!" ),
-// 7000);
 
 
 
