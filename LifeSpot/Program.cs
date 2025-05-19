@@ -9,9 +9,8 @@ namespace LifeSpot
     {
         public static void Main(string[] args)
         {
-            // Выводим информационное сообщение 
-            PrintMessage( (() => Info("Запускаем приложение")) );
-            
+            PrintMessage(() => Info("Запускаем приложение"));
+            Console.WriteLine($"ContentRootPath: {Directory.GetCurrentDirectory()}");
             CreateHostBuilder(args).Build().Run();
         }
 

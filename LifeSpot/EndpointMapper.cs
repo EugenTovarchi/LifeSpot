@@ -39,16 +39,15 @@ public static class EndpointMapper
         /// <summary>
         ///  Маппинг Html-страниц
         /// </summary>
-        public static void MapHtml(this IEndpointRouteBuilder builder, IWebHostEnvironment env)
+        public static void MapHtml(this IEndpointRouteBuilder builder)
         {
-            Console.WriteLine("MapHtml() вызван!!!");
-           string footerPath = Path.Combine(env.ContentRootPath, "Views", "Shared", "footer.html");
-           string sidebarPath = Path.Combine(env.ContentRootPath, "Views", "Shared", "sidebar.html");
-           string sliderPath = Path.Combine(env.ContentRootPath, "Views", "Shared", "slider.html");
+           string footerHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "footer.html"));
+           string sideBarHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "sidebar.html"));
+           string sliderHtml = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "Views", "Shared", "slider.html"));
 
            builder.MapGet("/", async context =>
            {
-               var viewPath = Path.Combine(env.ContentRootPath, "Views", "index.html");
+               var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "index.html");
                var viewText = await File.ReadAllTextAsync(viewPath);
 
                // Загружаем шаблон страницы, вставляя в него элементы
@@ -61,7 +60,7 @@ public static class EndpointMapper
 
            builder.MapGet("/testing", async context =>
            {
-               var viewPath = Path.Combine(Path.Combine(env.ContentRootPath, "Views", "testing.html");
+               var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "testing.html");
 
                // Загружаем шаблон страницы, вставляя в него элементы
                var html =  new StringBuilder(await File.ReadAllTextAsync(viewPath))
@@ -72,17 +71,16 @@ public static class EndpointMapper
            });
 
            builder.MapGet("/about", async context =>
-                      {
-                          var viewPath = Path.Combine(Path.Combine(env.ContentRootPath, "Views", "about.html");
+           {
+               var viewPath = Path.Combine(Directory.GetCurrentDirectory(), "Views", "about.html");
 
-                          var html =  new StringBuilder(await File.ReadAllTextAsync(viewPath))
-                              .Replace("<!--SIDEBAR-->", sideBarHtml)
-                              .Replace("<!--FOOTER-->", footerHtml)
-                              // Загрузка слайдера
-                              .Replace("<!--SLIDER-->", sliderHtml);
+               // Загружаем шаблон страницы, вставляя в него элементы
+               var html =  new StringBuilder(await File.ReadAllTextAsync(viewPath))
+                   .Replace("<!--SIDEBAR-->", sideBarHtml)
+                   .Replace("<!--FOOTER-->", footerHtml)
+                   .Replace(("<!--SLIDER-->", sliderHtml));
 
-                          await context.Response.WriteAsync(html.ToString());
-                          Console.WriteLine("Builder Map Get Для файла About - выполнился!")
-                      });
+               await context.Response.WriteAsync(html.ToString());
+           });
         }
 }
